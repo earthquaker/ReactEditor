@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Codemirror from 'react-codemirror';
 import "codemirror/lib/codemirror.css";
+import 'codemirror/mode/javascript/javascript';
 
 class App extends Component {
     constructor(props) {
