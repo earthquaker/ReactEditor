@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "codemirror": "^5.19.0",
     "react-scripts": "0.6.1"
   },
   "dependencies": {
+    "codemirror": "^5.19.0",
+    "firebase": "^3.4.1",
     "react": "^15.3.2",
     "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.2"
