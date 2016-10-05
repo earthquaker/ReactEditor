@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from './store';
+import { Provider } from 'react-redux';
 import * as firebase from 'firebase';
 import App from './App';
 import './styles/index.css';
@@ -15,6 +17,8 @@ var config = {
 firebase.initializeApp(config);
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );

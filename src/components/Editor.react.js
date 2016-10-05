@@ -3,6 +3,9 @@ import Codemirror from 'react-codemirror';
 import "codemirror/lib/codemirror.css";
 import 'codemirror/mode/javascript/javascript';
 
+import { connect } from 'react-redux';
+import * as codeActions from '../actions/codeActions';
+
 class Editor extends Component {
     constructor(props) {
         super(props);
@@ -10,10 +13,17 @@ class Editor extends Component {
             code: ''
         };
     }
-    updateCode(newCode) {
+    componentWillMount() {
+        this.props.getCode();
+    }
+    componentWillReceiveProps(nextProps) {
         this.setState({
-            code: newCode
+            code: nextProps.code
         });
+    }
+    updateCode(newCode) {
+        // this.setState({code: newCode}); should i set state before aswell for speed?
+        this.props.setCode(newCode);
     }
     render() {
         let options = {
@@ -21,9 +31,21 @@ class Editor extends Component {
             mode: 'javascript'
         };
         return (
-            <Codemirror value={this.state.code} onChange={()=>this.updateCode} options={options} />
+            <Codemirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
         )
     }
 }
 
-export default Editor;
+function mapStateToProps(state) {
+    console.log(state);
+    return {
+        code: state.code
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        getCode: () => dispatch(codeActions.getCode()),
+        setCode: (code) => dispatch(codeActions.setCode(code))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Editor);
