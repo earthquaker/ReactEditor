@@ -6,9 +6,11 @@
     "react-scripts": "0.6.1"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "codemirror": "^5.19.0",
     "firebase": "^3.4.1",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
     "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

@@ -4,6 +4,8 @@ import store from './store';
 import { Provider } from 'react-redux';
 import * as firebase from 'firebase';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import './styles/index.css';
 
 // Initialize Firebase

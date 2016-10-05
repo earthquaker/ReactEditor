@@ -4,6 +4,8 @@ import Editor from '../components/Editor.react'
 import { connect } from 'react-redux';
 import * as codeActions from '../actions/codeActions';
 
+import { ButtonToolbar, Button, Navbar } from 'react-bootstrap';
+
 class EditorContainer extends Component {
 
     state = {
@@ -32,7 +34,29 @@ class EditorContainer extends Component {
         };
         return (
             <div>
-                <button>New</button>
+                <Navbar>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                            <a href="#">Code</a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Navbar.Form pullLeft>
+                            <ButtonToolbar>
+                                <Button>New</Button>
+                                <Button>Share</Button>
+                                <Button>Sync</Button>
+                                <Button>Save</Button>
+                            </ButtonToolbar>
+                        </Navbar.Form>
+                        <Navbar.Form pullRight>
+                            <ButtonToolbar>
+                                <Button>Login with Github</Button>
+                            </ButtonToolbar>
+                        </Navbar.Form>
+                    </Navbar.Collapse>
+                </Navbar>
                 <Editor code={this.state.code} codeChanged={this.codeChanged.bind(this)} options={options} />
             </div>
         )
