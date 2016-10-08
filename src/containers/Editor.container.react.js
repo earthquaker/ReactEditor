@@ -4,7 +4,7 @@ import Editor from '../components/Editor.react'
 import { connect } from 'react-redux';
 import * as codeActions from '../actions/codeActions';
 
-import { ButtonToolbar, Button, Navbar } from 'react-bootstrap';
+import { ButtonToolbar, Button, Navbar, Tabs, Tab } from 'react-bootstrap';
 
 class EditorContainer extends Component {
 
@@ -34,7 +34,7 @@ class EditorContainer extends Component {
         };
         return (
             <div>
-                <Navbar>
+                <Navbar fluid fixedTop>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a href="#">Code</a>
@@ -46,8 +46,8 @@ class EditorContainer extends Component {
                             <ButtonToolbar>
                                 <Button>New</Button>
                                 <Button>Share</Button>
-                                <Button>Sync</Button>
                                 <Button>Save</Button>
+                                <Button>Add Library</Button>
                             </ButtonToolbar>
                         </Navbar.Form>
                         <Navbar.Form pullRight>
@@ -57,7 +57,15 @@ class EditorContainer extends Component {
                         </Navbar.Form>
                     </Navbar.Collapse>
                 </Navbar>
-                <Editor code={this.state.code} codeChanged={this.codeChanged.bind(this)} options={options} />
+                <Tabs defaultActiveKey={2} animation={false} id="uncontrolled-tab-example" style={{margin:"51px 0 0 0"}}>
+                    <Tab eventKey={1} title="HTML">HTML</Tab>
+                    <Tab eventKey={2} title="JavaScript">
+                        <Editor code={this.state.code} codeChanged={this.codeChanged.bind(this)} options={options} />
+                    </Tab>
+                    <Tab eventKey={3} title="CSS">
+                        CSS
+                    </Tab>
+                </Tabs>
             </div>
         )
     }

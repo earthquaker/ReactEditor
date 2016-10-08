@@ -1,0 +1,11 @@
+.navbar-default {
+    background-image:none!important;
+    background:#FFF!important;
+    box-shadow:none!important;
+}
+.btn {
+    background-image:none!important;
+}
+.nav-tabs > li > a {
+    border-radius:0!important;
+}
